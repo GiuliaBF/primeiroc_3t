@@ -28,39 +28,92 @@ function cubo(){
         document.write("O cubo de "+i+" é "+i+" x "+i+" x "+i+" = "+(i*i*i)+"<br>");
     }
 }
-function moeda(atual){
-    return atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-}
-function mat(){  
+
+function mat(){
     let v = document.getElementById("valor").value;
     let j = document.getElementById("juros").value;
     let t = document.getElementById("messes").value;
-  
-    if(!Number(v)){
-        alert("O Capitual deve ser numérico.");
-        document.getElementById("juros").value = "";
-        document.getElementById("juros").focus();
-        return
-    }
-    if(!Number(j)){
-        alert("Juros deve ser número.");
-        document.getElementById("valor").value = "";
-        document.getElementById("valor").focus();
-        return
-    }
-    if(!Number(t)){
-        alert("Juros deve ser número.");
-        document.getElementById("meses").value = "";
-        document.getElementById("meses").focus();
-        return
-    }
     let r = 0;
     for(let i=1; i<=t; i++){
         r = v * (1+(j/100));
-        v = r;
-        //document.write("Mês " + i + " = " + moeda(r) + "<br>");
+        v = r; 
+        document.getElementById("totalGeral").innerHTML = "Total: " +moeda(r);
         
     }
-    document.getElementById("totalGeral").innerHTML = "Total: " +moeda(r);
-    //document.write("Resultado " + moeda(r));
+    document.write("Resultado " + r);
 }
+function media(){
+    let n1 = document.getElementById("v1").value
+    let n2 = document.getElementById("v2").value
+    let n3 = document.getElementById("v3").value
+    let r = (Number(n1) + Number(n2) + Number(n3))/3;
+    document.getElementById("resultado").innerHTML = "Média : " + r;
+}
+function soma(){
+    let n1 = document.getElementById("v1").value
+    let n2 = document.getElementById("v2").value
+    let n3 = document.getElementById("v3").value
+    let r = (Number(n1) + Number(n2) + Number(n3));
+    document.getElementById("resultado").innerHTML = "Soma : " + r;
+}
+function subtração(){
+    let n1 = document.getElementById("v1").value
+    let n2 = document.getElementById("v2").value
+    let n3 = document.getElementById("v3").value
+    let r = (Number(n1) - Number(n2) - Number(n3));
+    document.getElementById("resultado").innerHTML = "Subtração : " + r;
+ }
+ function moeda(atual) {
+  return atual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+}
+
+function total() {
+  let c = document.getElementById("valor").value;
+  let j = document.getElementById("juros").value;
+  let t = document.getElementById("meses").value;
+  let r = moeda;
+
+
+  if (!Number(c)) {
+
+    alert("O capital deve ser numeros.");
+    document.getElementById("valor").value = "";
+    document.getElementById("valor").focus();
+    return;
+  }
+
+  if (!Number(j)) {
+    alert("O juros deve ser numeros.");
+    document.getElementById("juros").value = "";
+    document.getElementById("juros").focus();
+    return;
+  }
+
+  if (!Number(t)) {
+    alert("O meses deve ser numeros.");
+    document.getElementById("meses").value = "";
+    document.getElementById("meses").focus();
+    return;
+  }
+  let mes = "";
+
+  for (let i = 1; i <= t; i++) {
+    r = c * (1 + (j / 100));
+    mes += "Mês " + i + " valor: " + moeda(r) + "<br>";
+    //document.write("Mês " + i + " valor: " + moeda(r) + "<br>");
+    c = r;
+  }
+  document.getElementById("mes").innerHTML=mes;
+  
+  document.getElementById("total").innerHTML="Total: "+moeda(r);
+  //document.write("Resultado: " + moeda(r));
+}
+function limpar(){
+  document.getElementById("mes").innerHTML="";
+   document.getElementById("total").innerHTML="0,00 ";
+   document.getElementById("valor").value = "";
+   document.getElementById("juros").value = "";
+   document.getElementById("meses").value = "";
+    
+}
+
