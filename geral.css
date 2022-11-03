@@ -3,6 +3,9 @@
     width: 100px;
     padding: 20px;
     border-radius: 20px;
+    position: absolute;
+    left:40%;
+    top:10%
 }
 #calculadora input {
     background-color: rgb(210, 96, 255);
