@@ -11,18 +11,40 @@
 </head>
 
 <body>
-
+   <input type="checkbox" name="" id="calcFin">
    <div id="calculadora">
-      <div id="spTotal">
-         <span id="total"> 0,00</span><br>
+      <label for="calcFin">
+         <h3>Financeiro</h3>
+      </label>
+      <div class="calcF">
+         <div id="sptotal">
+            <span id="total">Total: 0,00</span><br>
+         </div>
+         Capital: <input id="valor" type="text"> <br>
+         Juros Mensais: <input id="juros" type="text"> <br>
+         Nr. de Meses: <input id="meses" type="text"> <br>
+         <button onclick="total()">Calcula</button>
       </div>
-      Capital: <input id="valor" type="text"> <br>
-      Juros Mensais: <input id="juros" type="text"> <br>
-      Nr. de Meses: <input id="meses" type="text"> <br>
-      <button onclick="total()">Calcula</button>
-      <button onclick="zerar()">zerar</button>
+      <div class="splista">
+         <span id="mes"></span>
+      </div>
    </div>
-   <div class="splista"></div>
-      <span id="mes"></span>
+
+   <input type="checkbox" name="" id="calcESG">
+   <div id="calculadoraESG">
+      <label for="calcESG">
+         <h3>Equação<br>Segundo grau</h3>
+      </label>
+      <div class="calcE">
+         <div id="spraiz">
+            <span id="raiz">X1 e X2: 0,00</span><br>
+         </div>
+         <input id="a" placeholder=" a" type="text"> <br>
+         <input id="b" placeholder=" b" type="text"> <br>
+         <input id="c" placeholder=" c" type="text"> <br>
+         <button onclick="calculaESG()">Calcula</button>
+      </div>
    </div>
+</body>
+
 </html>
